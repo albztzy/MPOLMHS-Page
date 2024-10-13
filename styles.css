@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f5; /* Light background color for a clean look */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    background-color: #003366; /* Dark blue color for header */
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.school-logo {
+    width: 80px; /* Adjusted size for logo */
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #00509e; /* Lighter blue on hover */
+    text-decoration: underline;
+}
+
+/* Faculty & Staff Section */
+#faculty-content {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto; /* Center the content */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a modern look */
+    border-radius: 10px; /* Rounded corners */
+    margin-top: 20px;
+}
+
+/* Faculty Info Styling */
+.faculty-info {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.faculty-image {
+    width: 2in;
+    height: 2in;
+    margin-right: 20px;
+    border-radius: 50%; /* Make the image circular */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add subtle shadow to image */
+}
+
+.faculty-description {
+    flex-grow: 1; /* Ensures the text takes up the remaining space */
+    font-size: 1.1em;
+    color: #333; /* Darker text color for readability */
+}
+
+.faculty-description h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #003366;
+    border-bottom: 2px solid #00509e; /* Underline with theme color */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
+}
+
+
+/* Achievement Info Styling */
+.achievement-info {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    margin-bottom: 40px; /* Space between achievements */
+}
+
+.achievement-image {
+    width: 2in; /* Set width for consistency */
+    height: 2in; /* Set height for consistency */
+    margin-right: 20px; /* Space between image and description */
+}
+
+.achievement-description {
+    flex-grow: 1; /* Ensures description takes up remaining space */
+    font-size: 1.1em; /* Adjust font size as needed */
+    color: #333; /* Darker text color for readability */
+}
+
+.achievement-description h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #003366; /* Title color */
+    border-bottom: 2px solid #00509e; /* Underline with theme color */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
