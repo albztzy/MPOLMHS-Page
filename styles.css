@@ -2,14 +2,14 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f0f0f5; /* Light background color for a clean look */
+    background-color: #f0f0f5;
     margin: 0;
     padding: 0;
 }
 
 /* Header Styling */
 header {
-    background-color: #003366; /* Dark blue color for header */
+    background-color: #003366;
     color: white;
     padding: 20px;
     display: flex;
@@ -17,8 +17,14 @@ header {
     justify-content: space-between;
 }
 
+.header-content {
+    display: flex;
+    align-items: center; /* Align logo and text vertically */
+}
+
 .school-logo {
     width: 80px; /* Adjusted size for logo */
+    margin-right: 15px; /* Add spacing between logo and school name */
 }
 
 h1 {
@@ -49,7 +55,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #00509e; /* Lighter blue on hover */
+    background-color: #00509e;
     text-decoration: underline;
 }
 
@@ -57,10 +63,10 @@ nav ul li a:hover {
 #faculty-content {
     padding: 40px 20px;
     max-width: 1000px;
-    margin: 0 auto; /* Center the content */
+    margin: 0 auto;
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a modern look */
-    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     margin-top: 20px;
 }
 
@@ -75,21 +81,21 @@ nav ul li a:hover {
     width: 2in;
     height: 2in;
     margin-right: 20px;
-    border-radius: 50%; /* Make the image circular */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add subtle shadow to image */
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .faculty-description {
-    flex-grow: 1; /* Ensures the text takes up the remaining space */
+    flex-grow: 1;
     font-size: 1.1em;
-    color: #333; /* Darker text color for readability */
+    color: #333;
 }
 
 .faculty-description h2 {
     margin-top: 0;
     font-size: 1.5em;
     color: #003366;
-    border-bottom: 2px solid #00509e; /* Underline with theme color */
+    border-bottom: 2px solid #00509e;
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
@@ -103,32 +109,30 @@ footer {
     margin-top: 40px;
 }
 
-
 /* Achievement Info Styling */
 .achievement-info {
     display: flex;
-    align-items: center; /* Center items vertically */
-    margin-bottom: 40px; /* Space between achievements */
+    align-items: center;
+    margin-bottom: 40px;
 }
 
 .achievement-image {
-    width: 2in; /* Set width for consistency */
-    height: 2in; /* Set height for consistency */
-    margin-right: 20px; /* Space between image and description */
+    width: 2in;
+    height: 2in;
+    margin-right: 20px;
 }
 
 .achievement-description {
-    flex-grow: 1; /* Ensures description takes up remaining space */
-    font-size: 1.1em; /* Adjust font size as needed */
-    color: #333; /* Darker text color for readability */
+    flex-grow: 1;
+    font-size: 1.1em;
+    color: #333;
 }
 
 .achievement-description h2 {
     margin-top: 0;
     font-size: 1.5em;
-    color: #003366; /* Title color */
-    border-bottom: 2px solid #00509e; /* Underline with theme color */
+    color: #003366;
+    border-bottom: 2px solid #00509e;
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
-
