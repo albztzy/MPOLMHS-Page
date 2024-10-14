@@ -63,7 +63,7 @@ nav ul li a:hover {
 
 /* Faculty & Staff Section */
 #faculty-content {
-    padding: 30px 20px; /* Reduced padding */
+    padding: 30px 20px;
     max-width: 1000px;
     margin: 0 auto;
     background-color: white;
@@ -75,27 +75,58 @@ nav ul li a:hover {
 /* Faculty Info Styling */
 .faculty-info {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px; /* Reduced bottom margin */
+    align-items: center; /* Align items in a single row */
+    margin-bottom: 20px;
 }
 
 .faculty-image {
-    width: 1.75in; /* Slightly reduced size */
-    height: 1.75in;
-    margin-right: 15px;
-    border-radius: 50%;
+    width: 2in;
+    height: 2in;
+    margin-right: 20px;
+    border-radius: 50%; /* Makes the image oval */
+    object-fit: cover; /* Ensures the image maintains its aspect ratio inside the oval */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .faculty-description {
     flex-grow: 1;
-    font-size: 1em; /* Reduced font size */
+    font-size: 1em;
     color: #333;
 }
 
 .faculty-description h2 {
     margin-top: 0;
-    font-size: 1.3em; /* Reduced font size for faculty names */
+    font-size: 1.3em; /* Reduced font size */
+    color: #003366;
+    border-bottom: 2px solid #00509e;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Achievement Info Styling */
+.achievement-info {
+    display: flex;
+    align-items: center; /* Align images and text in one row */
+    margin-bottom: 20px;
+}
+
+.achievement-image {
+    width: 2in; /* Adjusted size for achievements */
+    height: 2in;
+    margin-right: 20px;
+    object-fit: cover;
+    border-radius: 50%; /* Make the image oval */
+}
+
+.achievement-description {
+    flex-grow: 1;
+    font-size: 1em; /* Reduced font size */
+    color: #333;
+}
+
+.achievement-description h2 {
+    margin-top: 0;
+    font-size: 1.3em;
     color: #003366;
     border-bottom: 2px solid #00509e;
     padding-bottom: 5px;
@@ -110,34 +141,6 @@ footer {
     padding: 5px 0; /* Reduced padding for a smaller footer */
     font-size: 0.8em; /* Smaller font size for footer text */
     margin-top: 20px; /* Reduced top margin */
-}
-
-/* Achievement Info Styling */
-.achievement-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px; /* Reduced bottom margin */
-}
-
-.achievement-image {
-    width: 1.75in; /* Adjusted size for achievements */
-    height: 1.75in;
-    margin-right: 15px;
-}
-
-.achievement-description {
-    flex-grow: 1;
-    font-size: 1em; /* Reduced font size */
-    color: #333;
-}
-
-.achievement-description h2 {
-    margin-top: 0;
-    font-size: 1.3em; /* Reduced font size for achievement titles */
-    color: #003366;
-    border-bottom: 2px solid #00509e;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
 }
 
 /* Additional Styles for Login and Excel Embed */
