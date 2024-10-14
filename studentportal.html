@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Portal - Mayor Pablo O. Lim Memorial High School</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
     <style>
@@ -32,6 +33,7 @@
 </head>
 <body>
 
+    <!-- Header Section with Navigation Menu -->
     <header>
         <img src="school-logo.png" alt="School Logo" class="school-logo">
         <h1>Mayor Pablo O. Lim Memorial High School</h1>
@@ -47,6 +49,7 @@
         </nav>
     </header>
 
+    <!-- Content Section for Student Portal -->
     <section>
         <h2>Welcome to the Student Portal</h2>
         <p>This is the section where students can access their academic records, announcements, and other important resources.</p>
@@ -68,20 +71,21 @@
         </form>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Mayor Pablo O. Lim Memorial High School. All rights reserved.</p>
     </footer>
 
     <script>
-        // Your Firebase configuration
+        // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDPk8RVqjFLdWgAoKO-LWZixwydoWuOvGw",
-            authDomain: "mpolmhs-forms.firebaseapp.com",
-            databaseURL: "https://mpolmhs-forms-default-rtdb.firebaseio.com",
-            projectId: "mpolmhs-forms",
-            storageBucket: "mpolmhs-forms.appspot.com",
-            messagingSenderId: "151182936796",
-            appId:  "1:151182936796:web:6bd81e6128dc410ad38219"
+  	authDomain: "mpolmhs-forms.firebaseapp.com",
+  	databaseURL: "https://mpolmhs-forms-default-rtdb.firebaseio.com",
+  	projectId: "mpolmhs-forms",
+  	storageBucket: "mpolmhs-forms.appspot.com",
+  	messagingSenderId: "151182936796",
+  	appId: "1:151182936796:web:6bd81e6128dc410ad38219"
         };
 
         // Initialize Firebase
@@ -102,11 +106,14 @@
                 birthday: document.getElementById("birthday").value
             };
 
+            console.log('Saving data:', studentData);
+
             // Save data to Firebase Realtime Database
             database.ref('students').push(studentData)
                 .then(() => {
+                    console.log('Data saved successfully!');
                     alert('Data saved successfully!');
-                    document.getElementById("studentForm").reset(); // Clear the form
+                    document.getElementById("studentForm").reset();
                 })
                 .catch(error => {
                     console.error('Error saving data:', error);
