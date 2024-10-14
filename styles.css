@@ -136,3 +136,71 @@ footer {
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
+
+/* Additional Styles for Login and Excel Embed */
+
+/* Login Form */
+.login-container {
+    margin: 50px auto;
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #003366;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #00509e;
+}
+
+/* Excel Embed */
+.excel-container {
+    margin: 50px auto;
+    width: 80%;
+    text-align: center;
+}
+
+/* Logout Button */
+.logout-button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #c9302c;
+}
