@@ -80,12 +80,15 @@ nav ul li a:hover {
 }
 
 .faculty-image {
-    width: 2in;
+
+
+    width: 2in; /* Adjusted size for achievements */
     height: 2in;
     margin-right: 20px;
-    border-radius: 50%; /* Makes the image oval */
-    object-fit: cover; /* Ensures the image maintains its aspect ratio inside the oval */
+    border-radius: 50%; /* Make the image oval */
+    object-fit: cover;/* Ensures the image maintains its aspect ratio inside the oval */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    
 }
 
 .faculty-description {
