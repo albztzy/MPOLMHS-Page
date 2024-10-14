@@ -56,10 +56,13 @@
     </footer>
 
     <script>
+        let logoutTimer;
+
         // Check if the user is already logged in when the page loads
         document.addEventListener("DOMContentLoaded", function() {
             if (localStorage.getItem("loggedIn") === "true") {
                 showExcelContainer();
+                resetLogoutTimer();
             } else {
                 showLoginContainer();
             }
@@ -69,10 +72,11 @@
         function login() {
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
-            
+
             if (username === "312311" && password === "pogiTayo143") {
                 localStorage.setItem("loggedIn", "true");
                 showExcelContainer();
+                resetLogoutTimer();
             } else {
                 document.getElementById("error-message").textContent = "Invalid credentials. Please try again.";
             }
@@ -93,7 +97,22 @@
         // Function to handle logout
         function logout() {
             localStorage.removeItem("loggedIn");
+            clearTimeout(logoutTimer);
             showLoginContainer();
+        }
+
+        // Function to reset the logout timer
+        function resetLogoutTimer() {
+            clearTimeout(logoutTimer);
+            logoutTimer = setTimeout(function() {
+                logout(); // Automatically log out after 5 minutes of inactivity
+                alert("You have been logged out due to inactivity.");
+            }, 5 * 60 * 1000); // 5 minutes
+
+            // Reset the timer on user activity
+            document.addEventListener("mousemove", resetLogoutTimer, { once: true });
+            document.addEventListener("keydown", resetLogoutTimer, { once: true });
+            document.addEventListener("touchstart", resetLogoutTimer, { once: true });
         }
     </script>
 
