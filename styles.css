@@ -5,14 +5,13 @@ body {
     background-color: #f0f0f5;
     margin: 0;
     padding: 0;
-    font-size: 0.9em; /* Reduced font size for the entire body */
 }
 
 /* Header Styling */
 header {
     background-color: #003366;
     color: white;
-    padding: 10px 15px; /* Reduced padding for a smaller header */
+    padding: 10px 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,13 +23,13 @@ header {
 }
 
 .school-logo {
-    width: 50px; /* Adjusted to make the logo smaller */
+    width: 50px;
     margin-right: 10px;
 }
 
 h1 {
     margin: 0;
-    font-size: 1.5em; /* Reduced font size for the header title */
+    font-size: 1.5em;
     font-weight: bold;
 }
 
@@ -50,8 +49,8 @@ nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 0.9em; /* Reduced font size for the navigation links */
-    padding: 8px 15px; /* Smaller padding for navigation items */
+    font-size: 0.9em;
+    padding: 8px 15px;
     transition: background-color 0.3s ease;
     border-radius: 5px;
 }
@@ -61,45 +60,48 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Faculty & Staff Section */
-#faculty-content {
-    padding: 30px 20px; /* Reduced padding */
-    max-width: 1000px;
-    margin: 0 auto;
-    background-color: white;
+/* Main Section - Image and Text Side by Side */
+.main-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-top: 20px;
 }
 
-/* Faculty Info Styling */
-.faculty-info {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px; /* Reduced bottom margin */
+/* Image Container */
+.image-container {
+    flex: 1;
+    text-align: center;
 }
 
-.faculty-image {
-    width: 1.75in; /* Slightly reduced size */
-    height: 1.75in;
-    margin-right: 15px;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.school-image {
+    width: 100%;
+    max-width: 400px; /* Adjust the max width to fit the design */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.faculty-description {
-    flex-grow: 1;
-    font-size: 1em; /* Reduced font size */
-    color: #333;
+/* Text Container */
+.text-container {
+    flex: 1;
+    margin-left: 20px; /* Adds space between the image and the text */
 }
 
-.faculty-description h2 {
-    margin-top: 0;
-    font-size: 1.3em; /* Reduced font size for faculty names */
+.text-container h2 {
     color: #003366;
-    border-bottom: 2px solid #00509e;
-    padding-bottom: 5px;
+    font-size: 1.8em;
     margin-bottom: 10px;
+}
+
+.text-container p {
+    font-size: 1.2em;
+    color: #333;
 }
 
 /* Footer */
@@ -107,105 +109,7 @@ footer {
     background-color: #003366;
     color: white;
     text-align: center;
-    padding: 5px 0; /* Reduced padding for a smaller footer */
-    font-size: 0.8em; /* Smaller font size for footer text */
-    margin-top: 20px; /* Reduced top margin */
-}
-
-/* Achievement Info Styling */
-.achievement-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px; /* Reduced bottom margin */
-}
-
-.achievement-image {
-    width: 1.75in; /* Adjusted size for achievements */
-    height: 1.75in;
-    margin-right: 15px;
-}
-
-.achievement-description {
-    flex-grow: 1;
-    font-size: 1em; /* Reduced font size */
-    color: #333;
-}
-
-.achievement-description h2 {
-    margin-top: 0;
-    font-size: 1.3em; /* Reduced font size for achievement titles */
-    color: #003366;
-    border-bottom: 2px solid #00509e;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-
-/* Additional Styles for Login and Excel Embed */
-
-/* Login Form */
-.login-container {
-    margin: 30px auto; /* Reduced margin */
-    width: 280px; /* Slightly narrower */
-    padding: 15px; /* Reduced padding */
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-.login-container h2 {
-    text-align: center;
-    color: #003366;
-    font-size: 1.3em; /* Reduced font size */
-}
-
-.login-container label {
-    display: block;
-    margin-bottom: 6px; /* Reduced margin */
-    font-weight: bold;
-    font-size: 0.9em; /* Reduced font size */
-}
-
-.login-container input[type="text"],
-.login-container input[type="password"] {
-    width: 100%;
-    padding: 8px; /* Reduced padding */
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.login-container button {
-    width: 100%;
-    padding: 8px; /* Reduced padding */
-    background-color: #003366;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.login-container button:hover {
-    background-color: #00509e;
-}
-
-/* Excel Embed */
-.excel-container {
-    margin: 40px auto; /* Reduced margin */
-    width: 80%;
-    text-align: center;
-}
-
-/* Logout Button */
-.logout-button {
-    margin-top: 15px;
-    padding: 8px; /* Reduced padding */
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.logout-button:hover {
-    background-color: #c9302c;
+    padding: 5px 0;
+    font-size: 0.8em;
+    margin-top: 20px;
 }
