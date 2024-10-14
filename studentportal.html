@@ -32,7 +32,6 @@
 </head>
 <body>
 
-    <!-- Header Section with Navigation Menu -->
     <header>
         <img src="school-logo.png" alt="School Logo" class="school-logo">
         <h1>Mayor Pablo O. Lim Memorial High School</h1>
@@ -48,7 +47,6 @@
         </nav>
     </header>
 
-    <!-- Content Section for Student Portal -->
     <section>
         <h2>Welcome to the Student Portal</h2>
         <p>This is the section where students can access their academic records, announcements, and other important resources.</p>
@@ -70,13 +68,12 @@
         </form>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Mayor Pablo O. Lim Memorial High School. All rights reserved.</p>
     </footer>
 
     <script>
-        // Firebase configuration
+        // Your Firebase configuration
         const firebaseConfig = {
             apiKey: "YOUR_API_KEY",
             authDomain: "YOUR_AUTH_DOMAIN",
@@ -89,7 +86,7 @@
 
         // Initialize Firebase
         const app = firebase.initializeApp(firebaseConfig);
-        const database = firebase.database(); // For Realtime Database
+        const database = firebase.database();
 
         // Submit form data to Firebase
         document.getElementById("studentForm").addEventListener("submit", function(event) {
