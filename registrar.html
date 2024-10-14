@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayor Pablo O. Lim Memorial High School - Excel Embed</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <img src="school-logo.png" alt="School Logo" class="school-logo">
+            <h1>Mayor Pablo O. Lim Memorial High School</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="offerings.html">Offerings</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="faculty.html">Faculty & Staff</a></li>
+                <li><a href="studentportal.html">Student Portal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Login Form -->
+    <div class="login-container" id="login-container">
+        <h2>Login</h2>
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password">
+        <button onclick="login()">Login</button>
+        <p id="error-message" style="color:red; text-align:center;"></p>
+    </div>
+
+    <!-- Excel Embed Section -->
+    <div class="excel-container" id="excel-container" style="display:none;">
+        <iframe src="https://onedrive.live.com/embed?resid=YOUR_FILE_ID&authkey=YOUR_AUTH_KEY&em=2" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        <br>
+        <button class="logout-button" onclick="logout()">Logout</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Mayor Pablo O. Lim Memorial High School. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Check if the user is already logged in when the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem("loggedIn") === "true") {
+                showExcelContainer();
+            } else {
+                showLoginContainer();
+            }
+        });
+
+        // Function to handle login
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            
+            if (username === "mpolmhs312311" && password === "password312311") {
+                localStorage.setItem("loggedIn", "true");
+                showExcelContainer();
+            } else {
+                document.getElementById("error-message").textContent = "Invalid credentials. Please try again.";
+            }
+        }
+
+        // Function to show the Excel embed and hide the login
+        function showExcelContainer() {
+            document.getElementById("login-container").style.display = "none";
+            document.getElementById("excel-container").style.display = "block";
+        }
+
+        // Function to show the login and hide the Excel embed
+        function showLoginContainer() {
+            document.getElementById("login-container").style.display = "block";
+            document.getElementById("excel-container").style.display = "none";
+        }
+
+        // Function to handle logout
+        function logout() {
+            localStorage.removeItem("loggedIn");
+            showLoginContainer();
+        }
+    </script>
+
+</body>
+</html>
