@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayor Pablo O. Lim Memorial High School - Excel Embed</title>
+    <title>Mayor Pablo O. Lim Memorial High School - Excel Access</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -36,17 +36,11 @@
         <p id="error-message" style="color:red; text-align:center;"></p>
     </div>
 
-    <!-- Excel Embed Section -->
-    <div class="excel-container" id="excel-container" style="display:none;">
-        <!-- Embed the OneDrive Excel File (Replace with the actual link) --> 
-        <iframe 
-    src="https://depedph-my.sharepoint.com/personal/albert_butad_deped_gov_ph/_layouts/15/Doc.aspx?sourcedoc={78ca9bc7-fc03-4ccc-b060-3719c75993ff}&action=embedview&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True" 
-    width="100%" 
-    height="600" 
-    frameborder="0" 
-    scrolling="no">
-</iframe>
-
+    <!-- Button to Access Records -->
+    <div class="records-container" id="records-container" style="display:none;">
+        <button onclick="openRecord('2024-2025')">Records of 2024-2025</button>
+        <button onclick="openRecord('2025-2026')">Records of 2025-2026</button>
+        <button onclick="openRecord('2026-2027')">Records of 2026-2027</button>
         <br>
         <button class="logout-button" onclick="logout()">Logout</button>
     </div>
@@ -61,7 +55,7 @@
         // Check if the user is already logged in when the page loads
         document.addEventListener("DOMContentLoaded", function() {
             if (localStorage.getItem("loggedIn") === "true") {
-                showExcelContainer();
+                showRecordsContainer();
                 resetLogoutTimer();
             } else {
                 showLoginContainer();
@@ -75,23 +69,23 @@
 
             if (username === "312311" && password === "pogiTayo143") {
                 localStorage.setItem("loggedIn", "true");
-                showExcelContainer();
+                showRecordsContainer();
                 resetLogoutTimer();
             } else {
                 document.getElementById("error-message").textContent = "Invalid credentials. Please try again.";
             }
         }
 
-        // Function to show the Excel embed and hide the login
-        function showExcelContainer() {
+        // Function to show the Records buttons and hide the login
+        function showRecordsContainer() {
             document.getElementById("login-container").style.display = "none";
-            document.getElementById("excel-container").style.display = "block";
+            document.getElementById("records-container").style.display = "block";
         }
 
-        // Function to show the login and hide the Excel embed
+        // Function to show the login and hide the Records buttons
         function showLoginContainer() {
             document.getElementById("login-container").style.display = "block";
-            document.getElementById("excel-container").style.display = "none";
+            document.getElementById("records-container").style.display = "none";
         }
 
         // Function to handle logout
@@ -99,6 +93,25 @@
             localStorage.removeItem("loggedIn");
             clearTimeout(logoutTimer);
             showLoginContainer();
+        }
+
+        // Function to open the OneDrive link based on the selected record year
+        function openRecord(year) {
+            let url;
+            switch (year) {
+                case '2024-2025':
+                    url = "https://depedph-my.sharepoint.com/:x:/g/personal/albert_butad_deped_gov_ph/ESucIWbIg2ZEhzkkG0X7fl0BiU2ZdVlqwIGtuEihR0SRJA?e=FxFxPV"; // Replace with your link for 2024-2025
+                    break;
+                case '2025-2026':
+                    url = "https://onedrive.live.com/view.aspx?cid=YYYYYY&resid=YYYYYY"; // Replace with your link for 2025-2026
+                    break;
+                case '2026-2027':
+                    url = "https://onedrive.live.com/view.aspx?cid=ZZZZZZ&resid=ZZZZZZ"; // Replace with your link for 2026-2027
+                    break;
+                default:
+                    return;
+            }
+            window.open(url, "_blank");
         }
 
         // Function to reset the logout timer
