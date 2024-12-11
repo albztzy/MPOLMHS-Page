@@ -89,51 +89,25 @@ input {
     font-size: 14px;
 }
 
-/* Align buttons to the left */
+/* Align buttons to the left and adjust width */
 .records-container {
     background-color: white;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Align the buttons to the left */
 }
 
-/* Button styling */
-button {
-    padding: 12px 25px; /* Adjust padding for a more compact button */
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    display: inline-block; /* Buttons will align next to each other */
-    text-align: center; /* Center text within the button */
-    margin: 10px 0; /* Add margin for spacing between buttons */
-    width: auto; /* Ensure button width is determined by content */
-    text-align: left; /* Align buttons to the left */
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-/* Error Message Styling */
-.error-message {
-    color: red;
-    font-size: 14px;
-}
-
-/* Fixing links to be vertically stacked */
 .records-link {
-    display: block; /* Ensure links are block-level elements */
-    background-color: #4caf50;
+    display: inline-block; /* Make the links behave like buttons */
+    background-color: #4CAF50;
     color: white;
     padding: 12px 25px;
     border-radius: 5px;
     text-decoration: none;
-    width: 80%; /* Adjust width as per your preference */
-    margin: 10px 0; /* Stack links vertically with margin */
+    margin: 10px 0;
     transition: background-color 0.3s ease;
+    width: auto; /* Button width adjusted to text */
 }
 
 .records-link:hover {
@@ -142,15 +116,15 @@ button:hover {
 
 /* Logout link */
 .logout-link {
-    display: block; /* Ensure the logout link is a block-level element */
+    display: inline-block; /* Ensure the logout link behaves like a button */
     background-color: #f44336;
     color: white;
     padding: 12px 25px;
     border-radius: 5px;
     text-decoration: none;
-    width: 80%;
     margin-top: 20px;
     text-align: center;
+    width: auto; /* Adjust to fit text */
 }
 
 .logout-link:hover {
