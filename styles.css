@@ -18,7 +18,7 @@ a {
 
 /* Header */
 header {
-    background-color: #4CAF50;
+    background-color: #007BFF; /* Blue background */
     padding: 20px;
     color: white;
     text-align: center;
@@ -95,7 +95,6 @@ input {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Align the buttons to the left within the container */
 }
 
 /* Button styling */
@@ -111,17 +110,19 @@ button {
     text-align: center; /* Center text within the button */
     margin: 10px 0; /* Add margin for spacing between buttons */
     width: auto; /* Ensure button width is determined by content */
+    text-align: left; /* Align buttons to the left */
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-
+/* Error Message Styling */
 .error-message {
     color: red;
     font-size: 14px;
 }
+
 /* Fixing links to be vertically stacked */
 .records-link {
     display: block; /* Ensure links are block-level elements */
@@ -130,8 +131,8 @@ button:hover {
     padding: 12px 25px;
     border-radius: 5px;
     text-decoration: none;
-    width: 80%;
-    margin: 10px auto; /* Center the links and stack them vertically */
+    width: 80%; /* Adjust width as per your preference */
+    margin: 10px 0; /* Stack links vertically with margin */
     transition: background-color 0.3s ease;
 }
 
