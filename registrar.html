@@ -51,9 +51,10 @@
             <a href="https://depedph-my.sharepoint.com/:x:/g/personal/albert_butad_deped_gov_ph/ESucIWbIg2ZEhzkkG0X7fl0BiU2ZdVlqwIGtuEihR0SRJA?e=FxFxPV" class="records-link">Records of 2024-2025</a><br>
             <a href="https://onedrive.live.com/view.aspx?cid=YYYYYY&resid=YYYYYY" class="records-link">Records of 2025-2026</a><br>
             <a href="https://onedrive.live.com/view.aspx?cid=ZZZZZZ&resid=ZZZZZZ" class="records-link">Records of 2026-2027</a><br>
-                <a href="javascript:void(0);" class="logout-link" onclick="logout()">Logout</a>
         </div>
 
+        <!-- Logout Button (hidden by default) -->
+        <a href="javascript:void(0);" class="logout-link" id="logout-link" onclick="logout()" style="display: none;">Logout</a>
 
     </main>
 
@@ -69,8 +70,10 @@
             if (localStorage.getItem("loggedIn") === "true") {
                 showRecordsContainer();
                 resetLogoutTimer();
+                document.getElementById("logout-link").style.display = "inline-block";  // Show logout button
             } else {
                 showLoginContainer();
+                document.getElementById("logout-link").style.display = "none";  // Hide logout button
             }
         });
 
@@ -84,6 +87,7 @@
                 localStorage.setItem("loggedIn", "true");
                 showRecordsContainer();
                 resetLogoutTimer();
+                document.getElementById("logout-link").style.display = "inline-block";  // Show logout button
             } else {
                 document.getElementById("error-message").textContent = "Invalid credentials. Please try again.";
             }
@@ -106,25 +110,7 @@
             localStorage.removeItem("loggedIn");
             clearTimeout(logoutTimer);
             showLoginContainer();
-        }
-
-        // Open Record Link
-        function openRecord(year) {
-            let url;
-            switch (year) {
-                case '2024-2025':
-                    url = "https://depedph-my.sharepoint.com/:x:/g/personal/albert_butad_deped_gov_ph/ESucIWbIg2ZEhzkkG0X7fl0BiU2ZdVlqwIGtuEihR0SRJA?e=FxFxPV";
-                    break;
-                case '2025-2026':
-                    url = "https://onedrive.live.com/view.aspx?cid=YYYYYY&resid=YYYYYY";
-                    break;
-                case '2026-2027':
-                    url = "https://onedrive.live.com/view.aspx?cid=ZZZZZZ&resid=ZZZZZZ";
-                    break;
-                default:
-                    return;
-            }
-            window.open(url, "_blank");
+            document.getElementById("logout-link").style.display = "none";  // Hide logout button
         }
 
         // Reset Logout Timer
