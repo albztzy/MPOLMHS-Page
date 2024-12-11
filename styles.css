@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #ffffff; /* Fixed the background to white */
     color: #333;
 }
 
@@ -126,7 +126,7 @@ button:hover {
     border-radius: 5px;
     text-decoration: none;
     width: 80%;
-    margin: 10px 0;
+    margin: 10px auto; /* Stack links vertically */
     transition: background-color 0.3s ease;
     text-align: center;
 }
