@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mayor Pablo O. Lim Memorial High School - Excel Access</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
+    <!-- Header -->
     <header>
-        <div class="header-content">
+        <div class="header-container">
             <img src="school-logo.png" alt="School Logo" class="school-logo">
             <h1>Mayor Pablo O. Lim Memorial High School</h1>
         </div>
@@ -17,35 +20,45 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <!-- <li><a href="offerings.html">Offerings</a></li> -->
-                <!-- <li><a href="achievements.html">Achievements</a></li> -->
-                <!-- <li><a href="faculty.html">Faculty & Staff</a></li> -->
-                <!-- <li><a href="studentportal.html">Student Portal</a></li> -->
                 <li><a href="registrar.html">Student Records</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Login Form -->
-    <div class="login-container" id="login-container">
-        <h2>Login</h2>
-        <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter your username">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password">
-        <button onclick="login()">Login</button>
-        <p id="error-message" style="color:red; text-align:center;"></p>
-    </div>
+    <!-- Main Content -->
+    <main>
 
-    <!-- Button to Access Records -->
-    <div class="records-container" id="records-container" style="display:none;">
-        <button onclick="openRecord('2024-2025')">Records of 2024-2025</button>
-        <button onclick="openRecord('2025-2026')">Records of 2025-2026</button>
-        <button onclick="openRecord('2026-2027')">Records of 2026-2027</button>
-        <br>
-        <button class="logout-button" onclick="logout()">Logout</button>
-    </div>
+        <!-- Login Form -->
+        <div class="login-container" id="login-container">
+            <h2>Login to Access Records</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                <p id="error-message" class="error-message"></p>
+            </form>
+        </div>
 
+        <!-- Records Container (hidden by default) -->
+        <div class="records-container" id="records-container" style="display:none;">
+            <h2>Access Student Records</h2>
+            <div class="records-buttons">
+                <button onclick="openRecord('2024-2025')">Records of 2024-2025</button>
+                <button onclick="openRecord('2025-2026')">Records of 2025-2026</button>
+                <button onclick="openRecord('2026-2027')">Records of 2026-2027</button>
+            </div>
+            <button class="btn-secondary logout-button" onclick="logout()">Logout</button>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Mayor Pablo O. Lim Memorial High School. All rights reserved.</p>
     </footer>
@@ -53,8 +66,7 @@
     <script>
         let logoutTimer;
 
-        // Check if the user is already logged in when the page loads
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             if (localStorage.getItem("loggedIn") === "true") {
                 showRecordsContainer();
                 resetLogoutTimer();
@@ -63,8 +75,9 @@
             }
         });
 
-        // Function to handle login
-        function login() {
+        // Handle Login
+        function login(event) {
+            event.preventDefault();
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 
@@ -77,37 +90,37 @@
             }
         }
 
-        // Function to show the Records buttons and hide the login
+        // Show Records Container
         function showRecordsContainer() {
             document.getElementById("login-container").style.display = "none";
             document.getElementById("records-container").style.display = "block";
         }
 
-        // Function to show the login and hide the Records buttons
+        // Show Login Container
         function showLoginContainer() {
             document.getElementById("login-container").style.display = "block";
             document.getElementById("records-container").style.display = "none";
         }
 
-        // Function to handle logout
+        // Handle Logout
         function logout() {
             localStorage.removeItem("loggedIn");
             clearTimeout(logoutTimer);
             showLoginContainer();
         }
 
-        // Function to open the OneDrive link based on the selected record year
+        // Open Record Link
         function openRecord(year) {
             let url;
             switch (year) {
                 case '2024-2025':
-                    url = "https://depedph-my.sharepoint.com/:x:/g/personal/albert_butad_deped_gov_ph/ESucIWbIg2ZEhzkkG0X7fl0BiU2ZdVlqwIGtuEihR0SRJA?e=FxFxPV"; // Replace with your link for 2024-2025
+                    url = "https://depedph-my.sharepoint.com/:x:/g/personal/albert_butad_deped_gov_ph/ESucIWbIg2ZEhzkkG0X7fl0BiU2ZdVlqwIGtuEihR0SRJA?e=FxFxPV";
                     break;
                 case '2025-2026':
-                    url = "https://onedrive.live.com/view.aspx?cid=YYYYYY&resid=YYYYYY"; // Replace with your link for 2025-2026
+                    url = "https://onedrive.live.com/view.aspx?cid=YYYYYY&resid=YYYYYY";
                     break;
                 case '2026-2027':
-                    url = "https://onedrive.live.com/view.aspx?cid=ZZZZZZ&resid=ZZZZZZ"; // Replace with your link for 2026-2027
+                    url = "https://onedrive.live.com/view.aspx?cid=ZZZZZZ&resid=ZZZZZZ";
                     break;
                 default:
                     return;
@@ -115,20 +128,22 @@
             window.open(url, "_blank");
         }
 
-        // Function to reset the logout timer
+        // Reset Logout Timer
         function resetLogoutTimer() {
             clearTimeout(logoutTimer);
-            logoutTimer = setTimeout(function() {
-                logout(); // Automatically log out after 5 minutes of inactivity
+            logoutTimer = setTimeout(function () {
+                logout();
                 alert("You have been logged out due to inactivity.");
-            }, 5 * 60 * 1000); // 5 minutes
+            }, 5 * 60 * 1000);
 
-            // Reset the timer on user activity
             document.addEventListener("mousemove", resetLogoutTimer, { once: true });
             document.addEventListener("keydown", resetLogoutTimer, { once: true });
             document.addEventListener("touchstart", resetLogoutTimer, { once: true });
         }
+
+        document.getElementById("login-form").addEventListener("submit", login);
     </script>
 
 </body>
+
 </html>
