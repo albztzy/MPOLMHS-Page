@@ -112,62 +112,35 @@ nav ul li a:hover {
     text-align: center;
 }
 
-.records-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-
-.records-buttons button {
+.records-link {
+    display: block; /* Make the links behave like block elements, so they stack vertically */
     background-color: #4caf50;
     color: white;
     padding: 12px 25px;
-    border: none;
     border-radius: 5px;
-    cursor: pointer;
-    width: 180px;
+    text-decoration: none; /* Remove underline */
+    width: 80%; /* Make the links take up 80% of the container's width */
+    margin: 10px 0; /* Add space between the links */
     transition: background-color 0.3s ease;
+    text-align: center; /* Center the text inside the link */
 }
 
-.records-buttons button:hover {
+.records-link:hover {
     background-color: #45a049;
 }
 
-.logout-button {
+.logout-link {
+    display: block;
     background-color: #f44336;
     color: white;
-    padding: 12px 20px;
-    border: none;
+    padding: 12px 25px;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.logout-button:hover {
-    background-color: #d32f2f;
-}
-
-/* Footer */
-footer {
+    text-decoration: none;
+    width: 80%;
+    margin-top: 20px; /* Space from the last records link */
     text-align: center;
-    background-color: #1a237e;
-    color: white;
-    padding: 15px;
-    margin-top: 40px;
 }
 
-/* Responsive Layout */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .records-buttons {
-        flex-direction: column;
-    }
-
-    .btn-primary, .btn-secondary {
-        width: 100%;
-    }
+.logout-link:hover {
+    background-color: #d32f2f;
 }
