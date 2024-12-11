@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff; /* Fixed the background to white */
+    background-color: #ffffff; /* White background */
     color: #333;
 }
 
@@ -118,25 +118,26 @@ button:hover {
     text-align: center;
 }
 
+/* Fixing links to be vertically stacked */
 .records-link {
-    display: block;
+    display: block; /* Ensure links are block-level elements */
     background-color: #4caf50;
     color: white;
     padding: 12px 25px;
     border-radius: 5px;
     text-decoration: none;
     width: 80%;
-    margin: 10px auto; /* Stack links vertically */
+    margin: 10px auto; /* Center the links and stack them vertically */
     transition: background-color 0.3s ease;
-    text-align: center;
 }
 
 .records-link:hover {
     background-color: #45a049;
 }
 
+/* Logout link */
 .logout-link {
-    display: block;
+    display: block; /* Ensure the logout link is a block-level element */
     background-color: #f44336;
     color: white;
     padding: 12px 25px;
