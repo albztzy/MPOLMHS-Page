@@ -89,35 +89,39 @@ input {
     font-size: 14px;
 }
 
+/* Align buttons to the left */
+.records-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Align the buttons to the left within the container */
+}
+
+/* Button styling */
 button {
-    width: 100%;
-    padding: 12px;
+    padding: 12px 25px; /* Adjust padding for a more compact button */
     background-color: #4caf50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    display: inline-block; /* Buttons will align next to each other */
+    text-align: center; /* Center text within the button */
+    margin: 10px 0; /* Add margin for spacing between buttons */
+    width: auto; /* Ensure button width is determined by content */
 }
 
 button:hover {
     background-color: #45a049;
 }
 
+
 .error-message {
     color: red;
     font-size: 14px;
 }
-
-/* Records Container */
-.records-container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
 /* Fixing links to be vertically stacked */
 .records-link {
     display: block; /* Ensure links are block-level elements */
