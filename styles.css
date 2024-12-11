@@ -1,217 +1,173 @@
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f0f0f5;
+/* Global Styles */
+* {
     margin: 0;
     padding: 0;
-    font-size: 0.9em; /* Reduced font size for the entire body */
+    box-sizing: border-box;
 }
 
-/* Header Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
 header {
-    background-color: #003366;
+    background-color: #1a237e;
     color: white;
-    padding: 10px 15px; /* Reduced padding for a smaller header */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 20px 0;
+    text-align: center;
 }
 
-.header-content {
+.header-container {
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
 .school-logo {
-    width: 50px; /* Adjusted to make the logo smaller */
-    margin-right: 10px;
+    width: 50px;
+    height: auto;
 }
 
-h1 {
-    margin: 0;
-    font-size: 1.5em; /* Reduced font size for the header title */
-    font-weight: bold;
-}
-
-/* Navigation Menu */
 nav ul {
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 nav ul li {
-    margin-left: 15px;
+    margin-right: 20px;
 }
 
 nav ul li a {
-    text-decoration: none;
     color: white;
-    font-weight: bold;
-    font-size: 0.9em; /* Reduced font size for the navigation links */
-    padding: 8px 15px; /* Smaller padding for navigation items */
-    transition: background-color 0.3s ease;
-    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: #00509e;
-    text-decoration: underline;
+    color: #ffeb3b;
 }
 
-/* Faculty & Staff Section */
-#faculty-content {
-    padding: 30px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
+/* Login Form */
+.login-container {
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 20px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    animation: fadeIn 0.5s ease-out;
 }
 
-/* Faculty Info Styling */
-.faculty-info {
-    display: flex;
-    align-items: center; /* Align items in a single row */
+.input-group {
     margin-bottom: 20px;
 }
 
-.faculty-image {
-
-
-    width: 2in; /* Adjusted size for achievements */
-    height: 2in;
-    margin-right: 20px;
-    border-radius: 50%; /* Make the image oval */
-    object-fit: cover;/* Ensures the image maintains its aspect ratio inside the oval */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-.faculty-description {
-    flex-grow: 1;
-    font-size: 1em;
-    color: #333;
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
-.faculty-description h2 {
-    margin-top: 0;
-    font-size: 1.3em; /* Reduced font size */
-    color: #003366;
-    border-bottom: 2px solid #00509e;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
+.btn-primary {
+    background-color: #1a237e;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
 }
 
-/* Achievement Info Styling */
-.achievement-info {
+.btn-primary:hover {
+    background-color: #0d174f;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Records Access */
+.records-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.records-buttons {
     display: flex;
-    align-items: center; /* Align images and text in one row */
+    justify-content: space-around;
     margin-bottom: 20px;
 }
 
-.achievement-image {
-    width: 2in; /* Adjusted size for achievements */
-    height: 2in;
-    margin-right: 20px;
-    object-fit: cover;
-    border-radius: 50%; /* Make the image oval */
+.records-buttons button {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 180px;
+    transition: background-color 0.3s ease;
 }
 
-.achievement-description {
-    flex-grow: 1;
-    font-size: 1em; /* Reduced font size */
-    color: #333;
+.records-buttons button:hover {
+    background-color: #45a049;
 }
 
-.achievement-description h2 {
-    margin-top: 0;
-    font-size: 1.3em;
-    color: #003366;
-    border-bottom: 2px solid #00509e;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
+.logout-button {
+    background-color: #f44336;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #d32f2f;
 }
 
 /* Footer */
 footer {
-    background-color: #003366;
-    color: white;
     text-align: center;
-    padding: 5px 0; /* Reduced padding for a smaller footer */
-    font-size: 0.8em; /* Smaller font size for footer text */
-    margin-top: 20px; /* Reduced top margin */
-}
-
-/* Additional Styles for Login and Excel Embed */
-
-/* Login Form */
-.login-container {
-    margin: 30px auto; /* Reduced margin */
-    width: 280px; /* Slightly narrower */
-    padding: 15px; /* Reduced padding */
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-.login-container h2 {
-    text-align: center;
-    color: #003366;
-    font-size: 1.3em; /* Reduced font size */
-}
-
-.login-container label {
-    display: block;
-    margin-bottom: 6px; /* Reduced margin */
-    font-weight: bold;
-    font-size: 0.9em; /* Reduced font size */
-}
-
-.login-container input[type="text"],
-.login-container input[type="password"] {
-    width: 100%;
-    padding: 8px; /* Reduced padding */
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.login-container button {
-    width: 100%;
-    padding: 8px; /* Reduced padding */
-    background-color: #003366;
+    background-color: #1a237e;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 15px;
+    margin-top: 40px;
 }
 
-.login-container button:hover {
-    background-color: #00509e;
-}
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
 
-/* Excel Embed */
-.excel-container {
-    margin: 40px auto; /* Reduced margin */
-    width: 80%;
-    text-align: center;
-}
+    .records-buttons {
+        flex-direction: column;
+    }
 
-/* Logout Button */
-.logout-button {
-    margin-top: 15px;
-    padding: 8px; /* Reduced padding */
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.logout-button:hover {
-    background-color: #c9302c;
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
 }
