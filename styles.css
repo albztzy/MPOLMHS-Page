@@ -62,6 +62,12 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Heading Styles */
+h1, h2 {
+    color: navy; /* Navy blue color for all headings */
+    text-align: left; /* Left-align the headings */
+}
+
 /* Login Form */
 .login-container {
     max-width: 400px;
