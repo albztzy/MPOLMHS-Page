@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mayor Pablo O. Lim Memorial High School - Excel Access</title>
     <link rel="stylesheet" href="styles.css">
+<style>
+    input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    }
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    }
+</style>
 </head>
 
 <body>
@@ -25,25 +38,24 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main>
-
-        <!-- Login Form -->
-        <div class="login-container" id="login-container">
-            <h2>Login to Access Records</h2>
-            <form id="login-form">
-                <div class="input-group">
-                    <label for="username" style="text-align:left">Username</label>
-                    <input type="text" id="username" placeholder="Enter your username" required>
-                </div>
-                <div class="input-group">
-                    <label for="password" style="text-align:left">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password" required>
-                </div>
-                <button type="submit" class="btn-primary">Login</button>
-                <p id="error-message" class="error-message"></p>
-            </form>
+<!-- Login Form -->
+<div class="login-container" id="login-container">
+    <h2>Login to Access Records</h2>
+    <form id="login-form">
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username" required>
         </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="btn-primary">Login</button>
+        <p id="error-message" class="error-message"></p>
+    </form>
+</div>
+
+
 
         <!-- Records Container (hidden by default) -->
         <div class="records-container" id="records-container" style="display:none;">
