@@ -11,12 +11,14 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f9;
-            margin: 0;
+            box-sizing: border-box;
         }
 
         .form-container {
@@ -26,7 +28,9 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 500px;
+            overflow-y: auto;  /* Ensures scrollability if the form is too long */
             box-sizing: border-box;
+            max-height: 90vh;  /* Limits the height of the form to ensure the whole form is viewable */
         }
 
         h1 {
@@ -69,6 +73,21 @@
 
         button:active {
             background-color: #004085;
+        }
+
+        @media screen and (max-width: 600px) {
+            .form-container {
+                max-width: 90%;
+                padding: 15px;
+            }
+
+            input, select, textarea {
+                font-size: 0.85rem;
+            }
+
+            button {
+                font-size: 0.9rem;
+            }
         }
 
     </style>
