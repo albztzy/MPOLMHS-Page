@@ -4,7 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enrolment Form</title>
+
+    <!-- Google API Library -->
     <script src="https://apis.google.com/js/api.js"></script>
+
+    <style>
+        /* General page styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Form container */
+        .form-container {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* Header */
+        h1 {
+            text-align: center;
+            color: #4e73df;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Label styling */
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+            color: #333;
+        }
+
+        /* Input fields */
+        input[type="text"], input[type="date"], select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: #fafafa;
+        }
+
+        input[type="text"]:focus, input[type="date"]:focus, select:focus {
+            border-color: #4e73df;
+            outline: none;
+        }
+
+        /* Submit button */
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #4e73df;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2e59d9;
+        }
+
+        /* Footer styling */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .footer a {
+            color: #4e73df;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
     <script>
         // Google API initialization
         function initClient() {
@@ -46,8 +138,8 @@
                 yearLevel: document.getElementById('yearLevel').value
             };
 
-            // Your Google Sheets ID (replace with your actual Google Sheets ID)
-            const sheetId = '1pT-wKtbC2lINiZJBwSVbOF3T9Wr6H8t5acHuhnjt0HY'; // Replace with your actual Google Sheet ID
+            // Your Google Sheets ID (this is your Sheets ID)
+            const sheetId = '1pT-wKtbC2lINiZJBwSVbOF3T9Wr6H8t5acHuhnjt0HY'; // Updated with your Google Sheet ID
             const range = 'Sheet1!A2:J2';  // Range where data will be inserted
 
             // Prepare data for Google Sheets
@@ -80,43 +172,47 @@
     </script>
 </head>
 <body>
-    <h1>Enrolment Form</h1>
 
-    <form id="enrolmentForm">
-        <label for="lrn">Learner Reference Number:</label>
-        <input type="text" id="lrn" name="lrn" required><br><br>
+    <div class="form-container">
+        <h1>Enrolment Form</h1>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required><br><br>
+        <form id="enrolmentForm">
+            <label for="lrn">Learner Reference Number:</label>
+            <input type="text" id="lrn" name="lrn" required><br>
 
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required><br><br>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
 
-        <label for="middleName">Middle Name:</label>
-        <input type="text" id="middleName" name="middleName" required><br><br>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
 
-        <label for="extName">Extension Name:</label>
-        <input type="text" id="extName" name="extName"><br><br>
+            <label for="middleName">Middle Name:</label>
+            <input type="text" id="middleName" name="middleName" required><br>
 
-        <label for="sex">Sex:</label>
-        <select id="sex" name="sex" required>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select><br><br>
+            <label for="extName">Extension Name:</label>
+            <input type="text" id="extName" name="extName"><br>
 
-        <label for="birthday">Birthday:</label>
-        <input type="date" id="birthday" name="birthday" required><br><br>
+            <label for="sex">Sex:</label>
+            <select id="sex" name="sex" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select><br>
 
-        <label for="schoolYear">School Year:</label>
-        <input type="text" id="schoolYear" name="schoolYear" required><br><br>
+            <label for="birthday">Birthday:</label>
+            <input type="date" id="birthday" name="birthday" required><br>
 
-        <label for="section">Section:</label>
-        <input type="text" id="section" name="section" required><br><br>
+            <label for="schoolYear">School Year:</label>
+            <input type="text" id="schoolYear" name="schoolYear" required><br>
 
-        <label for="yearLevel">Year Level:</label>
-        <input type="text" id="yearLevel" name="yearLevel" required><br><br>
+            <label for="section">Section:</label>
+            <input type="text" id="section" name="section" required><br>
 
-        <button type="submit">Submit</button>
-    </form>
+            <label for="yearLevel">Year Level:</label>
+            <input type="text" id="yearLevel" name="yearLevel" required><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
 </body>
 </html>
