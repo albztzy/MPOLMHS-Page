@@ -97,14 +97,14 @@
             border: 2px solid #555;
             border-radius: 5px;
             color: #fff;
-            font-size: 14px; /* Reduced font size */
-            box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+            font-size: 14px;
+            box-sizing: border-box;
         }
 
         label {
             display: block;
             margin-bottom: 5px;
-            font-size: 14px; /* Reduced font size */
+            font-size: 14px;
         }
 
         .error-message {
@@ -114,19 +114,19 @@
 
         /* Buttons */
         .futuristic-btn {
-            padding: 8px 16px; /* Slightly smaller padding */
+            padding: 8px 16px;
             background: linear-gradient(145deg, #ff8a00, #e52e71);
             color: white;
             border: none;
-            border-radius: 50px;
-            font-size: 14px; /* Smaller font size */
+            border-radius: 5px; /* 5px border-radius */
+            font-size: 14px;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
             outline: none;
             width: 100%;
+            margin-top: 5px; /* 5px margin-top */
             transition: all 0.3s ease;
-            margin-top: 5px;
         }
 
         .futuristic-btn:hover {
@@ -144,15 +144,15 @@
             display: block;
             color: #ff8a00;
             margin-bottom: 10px;
-            font-size: 16px; /* Slightly smaller font size */
+            font-size: 16px;
         }
 
+        /* Logout Button */
         .logout-link {
-            display: block;
-            text-align: center;
+            display: inline-block;
             color: #e52e71;
-            margin-top: 20px;
-            font-size: 14px; /* Reduced font size */
+            font-size: 14px;
+            margin-left: 20px; /* Move logout to the right of the record links */
         }
 
         /* Footer */
@@ -207,10 +207,8 @@
         <a href="https://depedph-my.sharepoint.com/:x:/g/personal/albert_butad_deped_gov_ph/ETPpbUPfS4BCnDU9Tyay1dABAkM2isWgRtYpVi2KeVTHBw?e=P1G5dw" target="_blank" class="records-link">2024-2025</a><br>
         <a href="https://onedrive.live.com/view.aspx?cid=YYYYYY&resid=YYYYYY" target="_blank" class="records-link">2025-2026</a><br>
         <a href="https://onedrive.live.com/view.aspx?cid=ZZZZZZ&resid=ZZZZZZ" target="_blank" class="records-link">2026-2027</a><br>
+        <a href="javascript:void(0);" class="logout-link" id="logout-link" onclick="logout()">Logout</a> <!-- Positioned to the right of the records links -->
     </div>
-
-    <!-- Logout Button (hidden by default) -->
-    <a href="javascript:void(0);" class="logout-link" id="logout-link" onclick="logout()" style="display: none;">Logout</a>
 
     <!-- Footer -->
     <footer>
