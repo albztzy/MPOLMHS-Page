@@ -5,46 +5,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mayor Pablo O. Lim Memorial High School - Excel Access</title>
-    <link rel="stylesheet" href="styles.css">
-<style>
-    input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    }
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #111;
+            color: #eaeaea;
+            margin: 0;
+            padding: 0;
+        }
 
-label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    }
+        h1, h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-.futuristic-btn {
-    padding: 10px 20px;
-    background: linear-gradient(145deg, #ff8a00, #e52e71);  /* Gradient background */
-    color: white;
-    border: 2px solid transparent;
-    border-radius: 50px;  /* Rounded edges for a sleek look */
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    outline: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.12);  /* Soft shadow for depth */
-    transition: all 0.3s ease;
-}
+        a {
+            color: #ff8a00;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-.futuristic-btn:hover {
-    background: linear-gradient(145deg, #e52e71, #ff8a00);  /* Reverse gradient on hover */
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.15);  /* Enhanced shadow on hover */
-    transform: translateY(-3px);  /* Slight lift effect */
-}
+        a:hover {
+            color: #e52e71;
+        }
 
-.futuristic-btn:active {
-    transform: translateY(1px);  /* Button slightly presses down on click */
-}
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #1c1c1c;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
 
-</style>
+        .header-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .school-logo {
+            width: 50px;
+            margin-right: 15px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            font-size: 18px;
+            font-weight: bold;
+            color: #eaeaea;
+            text-transform: uppercase;
+        }
+
+        /* Login and Records Container */
+        .login-container, .records-container {
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-container {
+            margin-top: 80px;
+        }
+
+        .records-container {
+            display: none;
+        }
+
+        /* Input fields */
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #333;
+            border: 2px solid #555;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .error-message {
+            color: #ff4d4d;
+            text-align: center;
+        }
+
+        /* Buttons */
+        .futuristic-btn {
+            padding: 10px 20px;
+            background: linear-gradient(145deg, #ff8a00, #e52e71);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            outline: none;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .futuristic-btn:hover {
+            background: linear-gradient(145deg, #e52e71, #ff8a00);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .futuristic-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Records Links */
+        .records-link {
+            display: block;
+            color: #ff8a00;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .logout-link {
+            display: block;
+            text-align: center;
+            color: #e52e71;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1c1c1c;
+            color: #eaeaea;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -56,7 +173,7 @@ label {
             <h1>Mayor Pablo O. Lim Memorial High School</h1>
         </div>
         <nav>
-            <ul style="text-align:left">
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="registrar.html">Student Records</a></li>
@@ -64,37 +181,33 @@ label {
         </nav>
     </header>
 
-<!-- Login Form -->
-<div class="login-container" id="login-container">
-    <h2>Login to Access Records</h2>
-    <form id="login-form">
-        <div class="input-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" placeholder="Enter your username" required>
-        </div>
-        <div class="input-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password" required>
-        </div>
-        <button type="submit" class="futuristic-btn">Login</button>
-        <p id="error-message" class="error-message"></p>
-    </form>
-</div>
+    <!-- Login Form -->
+    <div class="login-container" id="login-container">
+        <h2>Login to Access Records</h2>
+        <form id="login-form">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="futuristic-btn">Login</button>
+            <p id="error-message" class="error-message"></p>
+        </form>
+    </div>
 
+    <!-- Records Container (hidden by default) -->
+    <div class="records-container" id="records-container">
+        <h2>Access Student Records</h2>
+        <a href="https://depedph-my.sharepoint.com/:x:/g/personal/albert_butad_deped_gov_ph/ETPpbUPfS4BCnDU9Tyay1dABAkM2isWgRtYpVi2KeVTHBw?e=P1G5dw" target="_blank" class="records-link">2024-2025</a><br>
+        <a href="https://onedrive.live.com/view.aspx?cid=YYYYYY&resid=YYYYYY" target="_blank" class="records-link">2025-2026</a><br>
+        <a href="https://onedrive.live.com/view.aspx?cid=ZZZZZZ&resid=ZZZZZZ" target="_blank" class="records-link">2026-2027</a><br>
+    </div>
 
-
-        <!-- Records Container (hidden by default) -->
-        <div class="records-container" id="records-container" style="display:none;">
-            <h2>Access Student Records</h2>
-            <a href="https://depedph-my.sharepoint.com/:x:/g/personal/albert_butad_deped_gov_ph/ETPpbUPfS4BCnDU9Tyay1dABAkM2isWgRtYpVi2KeVTHBw?e=P1G5dw" target="_blank" class="records-link">2024-2025</a><br>
-            <a href="https://onedrive.live.com/view.aspx?cid=YYYYYY&resid=YYYYYY" target="_blank" class="records-link">2025-2026</a><br>
-            <a href="https://onedrive.live.com/view.aspx?cid=ZZZZZZ&resid=ZZZZZZ" target="_blank" class="records-link">2026-2027</a><br>
-        </div>
-
-        <!-- Logout Button (hidden by default) -->
-        <a href="javascript:void(0);" class="logout-link" id="logout-link" onclick="logout()" style="display: none;">Logout</a>
-
-    </main>
+    <!-- Logout Button (hidden by default) -->
+    <a href="javascript:void(0);" class="logout-link" id="logout-link" onclick="logout()" style="display: none;">Logout</a>
 
     <!-- Footer -->
     <footer>
