@@ -1,203 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration Form</title>
-    <!-- Include Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrolment Form</title>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script>
+    // Initialize Google API Client
+    function initClient() {
+      gapi.client.init({
+        'apiKey': 'YOUR_API_KEY', // Optional: Use if you're using an API key for basic requests
+        'clientId': 'YOUR_OAUTH_CLIENT_ID', // Replace with your OAuth client ID
+        'scope': 'https://www.googleapis.com/auth/spreadsheets', // Scope for Google Sheets
+        'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
+      }).then(function () {
+        // Handle authentication
+        gapi.auth2.getAuthInstance().signIn().then(function () {
+          console.log('User signed in');
+        });
+      });
+    }
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            box-sizing: border-box;
-        }
+    // Load the Google API Client
+    function loadClient() {
+      gapi.load('client:auth2', initClient);
+    }
 
-        .form-container {
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
-            overflow-y: auto;  /* Ensures scrollability if the form is too long */
-            box-sizing: border-box;
-            max-height: 90vh;  /* Limits the height of the form to ensure the whole form is viewable */
-        }
+    document.addEventListener('DOMContentLoaded', loadClient);
 
-        h1 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+    // Submit form data to Google Sheets
+    document.getElementById('enrolmentForm').addEventListener('submit', function(event) {
+      event.preventDefault();  // Prevent form from submitting the usual way
+      
+      // Capture form data
+      const formData = {
+        lrn: document.getElementById('lrn').value,
+        lastName: document.getElementById('lastName').value,
+        firstName: document.getElementById('firstName').value,
+        middleName: document.getElementById('middleName').value,
+        extName: document.getElementById('extName').value,
+        sex: document.getElementById('sex').value,
+        birthday: document.getElementById('birthday').value,
+        schoolYear: document.getElementById('schoolYear').value,
+        section: document.getElementById('section').value,
+        yearLevel: document.getElementById('yearLevel').value
+      };
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
+      // Your Google Sheets ID (found in the Google Sheets URL)
+      const sheetId = 'YOUR_GOOGLE_SHEET_ID';  // Replace with your actual Google Sheets ID
+      const range = 'Sheet1!A2:J2';  // Range where you want to append the form data (adjust as needed)
 
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            box-sizing: border-box;
-        }
+      // Prepare the data to be inserted into Google Sheets
+      const values = [
+        [formData.lrn, formData.lastName, formData.firstName, formData.middleName, formData.extName, formData.sex, formData.birthday, formData.schoolYear, formData.section, formData.yearLevel]
+      ];
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+      // Use Google Sheets API to append data
+      const body = {
+        values: values
+      };
 
-        button:hover {
-            background-color: #0056b3;
-        }
+      const request = gapi.client.sheets.spreadsheets.values.append({
+        spreadsheetId: sheetId,
+        range: range,
+        valueInputOption: 'RAW',
+        resource: body
+      });
 
-        button:active {
-            background-color: #004085;
-        }
-
-        @media screen and (max-width: 600px) {
-            .form-container {
-                max-width: 90%;
-                padding: 15px;
-            }
-
-            input, select, textarea {
-                font-size: 0.85rem;
-            }
-
-            button {
-                font-size: 0.9rem;
-            }
-        }
-
-    </style>
+      request.then(function(response) {
+        console.log('Form data successfully added to sheet', response);
+        alert('Form submitted successfully!');
+      }, function(error) {
+        console.error('Error writing to sheet', error);
+        alert('There was an error submitting the form');
+      });
+    });
+  </script>
 </head>
 <body>
+  <h1>Enrolment Form</h1>
+  <form id="enrolmentForm">
+    <label for="lrn">Learner Reference Number:</label>
+    <input type="text" id="lrn" name="lrn" required><br><br>
 
-    <div class="form-container">
-        <h1>Student Registration Form</h1>
-        <form id="student-form">
-            <!-- LRN (Unique Identifier) -->
-            <label for="lrn">LRN (Unique Identifier)</label>
-            <input type="text" id="lrn" required>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required><br><br>
 
-            <!-- Last Name -->
-            <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" required>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required><br><br>
 
-            <!-- First Name -->
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" required>
+    <label for="middleName">Middle Name:</label>
+    <input type="text" id="middleName" name="middleName" required><br><br>
 
-            <!-- Middle Name -->
-            <label for="middle-name">Middle Name</label>
-            <input type="text" id="middle-name">
+    <label for="extName">Extension Name:</label>
+    <input type="text" id="extName" name="extName"><br><br>
 
-            <!-- Extension Name (Optional) -->
-            <label for="extension-name">Extension Name (if available)</label>
-            <input type="text" id="extension-name">
+    <label for="sex">Sex:</label>
+    <select id="sex" name="sex" required>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select><br><br>
 
-            <!-- Birthday -->
-            <label for="birthday">Birthday</label>
-            <input type="date" id="birthday" required>
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" name="birthday" required><br><br>
 
-            <!-- Year Level -->
-            <label for="year-level">Year Level</label>
-            <select id="year-level" required>
-                <option value="Grade 7">Grade 7</option>
-                <option value="Grade 8">Grade 8</option>
-                <option value="Grade 9">Grade 9</option>
-                <option value="Grade 10">Grade 10</option>
-                <option value="Grade 11">Grade 11</option>
-                <option value="Grade 12">Grade 12</option>
-            </select>
+    <label for="schoolYear">School Year:</label>
+    <input type="text" id="schoolYear" name="schoolYear" required><br><br>
 
-            <!-- School Year -->
-            <label for="school-year">School Year</label>
-            <input type="text" id="school-year" required>
+    <label for="section">Section:</label>
+    <input type="text" id="section" name="section" required><br><br>
 
-            <!-- Section -->
-            <label for="section">Section</label>
-            <input type="text" id="section" required>
+    <label for="yearLevel">Year Level:</label>
+    <input type="text" id="yearLevel" name="yearLevel" required><br><br>
 
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-
-    <script>
-        // Firebase Configuration (replace with your own config)
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
-
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-
-        // Get the form and fields
-        const form = document.getElementById("student-form");
-
-        // Handle form submission
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            const lrn = document.getElementById("lrn").value;
-            const lastName = document.getElementById("last-name").value;
-            const firstName = document.getElementById("first-name").value;
-            const middleName = document.getElementById("middle-name").value;
-            const extensionName = document.getElementById("extension-name").value;
-            const birthday = document.getElementById("birthday").value;
-            const yearLevel = document.getElementById("year-level").value;
-            const schoolYear = document.getElementById("school-year").value;
-            const section = document.getElementById("section").value;
-
-            // Save data to Firestore
-            db.collection("studentRecords").add({
-                lrn: lrn,
-                lastName: lastName,
-                firstName: firstName,
-                middleName: middleName,
-                extensionName: extensionName,
-                birthday: birthday,
-                yearLevel: yearLevel,
-                schoolYear: schoolYear,
-                section: section,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            })
-            .then(() => {
-                alert("Student record has been saved!");
-                form.reset();  // Reset form fields
-            })
-            .catch((error) => {
-                console.error("Error adding document: ", error);
-            });
-        });
-    </script>
-
+    <button type="submit">Submit</button>
+  </form>
 </body>
 </html>
