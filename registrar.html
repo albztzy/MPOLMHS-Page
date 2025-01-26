@@ -70,6 +70,19 @@
             text-transform: uppercase;
         }
 
+        /* Logout Link */
+        .logout-link {
+            color: #e52e71;
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 20px;
+            display: none;
+        }
+
+        .logout-link:hover {
+            color: #ff8a00;
+        }
+
         /* Login and Records Container */
         .login-container, .records-container {
             padding: 20px;
@@ -147,14 +160,6 @@
             font-size: 16px;
         }
 
-        /* Logout Button */
-        .logout-link {
-            display: inline-block;
-            color: #e52e71;
-            font-size: 14px;
-            margin-left: 20px; /* Move logout to the right of the record links */
-        }
-
         /* Footer */
         footer {
             background-color: #1c1c1c;
@@ -180,6 +185,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="registrar.html">Student Records</a></li>
+                <li><a href="javascript:void(0);" id="logout-link" class="logout-link" onclick="logout()">Logout</a></li> <!-- Logout added here -->
             </ul>
         </nav>
     </header>
@@ -207,7 +213,6 @@
         <a href="https://depedph-my.sharepoint.com/:x:/g/personal/albert_butad_deped_gov_ph/ETPpbUPfS4BCnDU9Tyay1dABAkM2isWgRtYpVi2KeVTHBw?e=P1G5dw" target="_blank" class="records-link">2024-2025</a><br>
         <a href="https://onedrive.live.com/view.aspx?cid=YYYYYY&resid=YYYYYY" target="_blank" class="records-link">2025-2026</a><br>
         <a href="https://onedrive.live.com/view.aspx?cid=ZZZZZZ&resid=ZZZZZZ" target="_blank" class="records-link">2026-2027</a><br>
-        <a href="javascript:void(0);" class="logout-link" id="logout-link" onclick="logout()">Logout</a> <!-- Positioned to the right of the records links -->
     </div>
 
     <!-- Footer -->
@@ -222,10 +227,10 @@
             if (localStorage.getItem("loggedIn") === "true") {
                 showRecordsContainer();
                 resetLogoutTimer();
-                document.getElementById("logout-link").style.display = "inline-block";  // Show logout button
+                document.getElementById("logout-link").style.display = "inline-block";  // Show logout button in header
             } else {
                 showLoginContainer();
-                document.getElementById("logout-link").style.display = "none";  // Hide logout button
+                document.getElementById("logout-link").style.display = "none";  // Hide logout button in header
             }
         });
 
@@ -239,7 +244,7 @@
                 localStorage.setItem("loggedIn", "true");
                 showRecordsContainer();
                 resetLogoutTimer();
-                document.getElementById("logout-link").style.display = "inline-block";  // Show logout button
+                document.getElementById("logout-link").style.display = "inline-block";  // Show logout button in header
             } else {
                 document.getElementById("error-message").textContent = "Invalid credentials. Please try again.";
             }
@@ -262,7 +267,7 @@
             localStorage.removeItem("loggedIn");
             clearTimeout(logoutTimer);
             showLoginContainer();
-            document.getElementById("logout-link").style.display = "none";  // Hide logout button
+            document.getElementById("logout-link").style.display = "none";  // Hide logout button in header
         }
 
         // Reset Logout Timer
