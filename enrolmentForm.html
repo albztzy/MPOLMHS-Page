@@ -18,10 +18,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Ensure page fills screen height */
+            overflow: auto; /* Allow scrolling if content overflows */
         }
 
-        /* Form container */
+        /* Form container with overflow handling */
         .form-container {
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -30,6 +31,8 @@
             width: 100%;
             max-width: 500px;
             box-sizing: border-box;
+            max-height: 90vh; /* Limit height but allow scrolling */
+            overflow-y: auto; /* Enable vertical scrolling if needed */
         }
 
         /* Header */
