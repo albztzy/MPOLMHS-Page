@@ -18,6 +18,32 @@ label {
     text-align: left;
     margin-bottom: 5px;
     }
+
+.futuristic-btn {
+    padding: 15px 30px;
+    background: linear-gradient(145deg, #ff8a00, #e52e71);  /* Gradient background */
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 50px;  /* Rounded edges for a sleek look */
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.12);  /* Soft shadow for depth */
+    transition: all 0.3s ease;
+}
+
+.futuristic-btn:hover {
+    background: linear-gradient(145deg, #e52e71, #ff8a00);  /* Reverse gradient on hover */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.15);  /* Enhanced shadow on hover */
+    transform: translateY(-3px);  /* Slight lift effect */
+}
+
+.futuristic-btn:active {
+    transform: translateY(1px);  /* Button slightly presses down on click */
+}
+
 </style>
 </head>
 
@@ -50,7 +76,7 @@ label {
             <label for="password">Password</label>
             <input type="password" id="password" placeholder="Enter your password" required>
         </div>
-        <button type="submit" style="padding: 10px 5px 0 10px; background-color: orange">Login</button>
+        <button type="submit" class="futuristic-btn">Login</button>
         <p id="error-message" class="error-message"></p>
     </form>
 </div>
