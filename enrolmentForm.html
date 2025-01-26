@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:active {
+            background-color: #004085;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Student Registration Form</h1>
+        <form id="student-form">
+            <!-- LRN (Unique Identifier) -->
+            <label for="lrn">LRN (Unique Identifier)</label>
+            <input type="text" id="lrn" required>
+
+            <!-- Last Name -->
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" required>
+
+            <!-- First Name -->
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" required>
+
+            <!-- Middle Name -->
+            <label for="middle-name">Middle Name</label>
+            <input type="text" id="middle-name">
+
+            <!-- Extension Name (Optional) -->
+            <label for="extension-name">Extension Name (if available)</label>
+            <input type="text" id="extension-name">
+
+            <!-- Birthday -->
+            <label for="birthday">Birthday</label>
+            <input type="date" id="birthday" required>
+
+            <!-- Year Level -->
+            <label for="year-level">Year Level</label>
+            <select id="year-level" required>
+                <option value="Grade 7">Grade 7</option>
+                <option value="Grade 8">Grade 8</option>
+                <option value="Grade 9">Grade 9</option>
+                <option value="Grade 10">Grade 10</option>
+                <option value="Grade 11">Grade 11</option>
+                <option value="Grade 12">Grade 12</option>
+            </select>
+
+            <!-- School Year -->
+            <label for="school-year">School Year</label>
+            <input type="text" id="school-year" required>
+
+            <!-- Section -->
+            <label for="section">Section</label>
+            <input type="text" id="section" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Firebase Configuration (replace with your own config)
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Get the form and fields
+        const form = document.getElementById("student-form");
+
+        // Handle form submission
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const lrn = document.getElementById("lrn").value;
+            const lastName = document.getElementById("last-name").value;
+            const firstName = document.getElementById("first-name").value;
+            const middleName = document.getElementById("middle-name").value;
+            const extensionName = document.getElementById("extension-name").value;
+            const birthday = document.getElementById("birthday").value;
+            const yearLevel = document.getElementById("year-level").value;
+            const schoolYear = document.getElementById("school-year").value;
+            const section = document.getElementById("section").value;
+
+            // Save data to Firestore
+            db.collection("studentRecords").add({
+                lrn: lrn,
+                lastName: lastName,
+                firstName: firstName,
+                middleName: middleName,
+                extensionName: extensionName,
+                birthday: birthday,
+                yearLevel: yearLevel,
+                schoolYear: schoolYear,
+                section: section,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            .then(() => {
+                alert("Student record has been saved!");
+                form.reset();  // Reset form fields
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });
+        });
+    </script>
+
+</body>
+</html>
