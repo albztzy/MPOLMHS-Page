@@ -4,7 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Mayor Pablo O. Lim Memorial High School</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            padding: 20px;
+            background: #0f3460;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .school-logo {
+            width: 60px;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .line {
+            border: 1px solid #e94560;
+            width: 80%;
+            margin: 10px auto;
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #e94560;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: #e94560;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Main Content */
+        #about-content {
+            max-width: 800px;
+            margin: 40px auto;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #f0f0f0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #e94560;
+            font-size: 26px;
+        }
+
+        p {
+            text-align: justify;
+            padding: 0 10px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 15px;
+            background: #0f3460;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,11 +117,8 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <!-- <li><a href="offerings.html">Offerings</a></li> -->
-                <!-- <li><a href="achievements.html">Achievements</a></li> -->
-                <!-- <li><a href="faculty.html">Faculty & Staff</a></li> -->
-                <!-- <li><a href="studentportal.html">Student Portal</a></li> -->
-                <li><a href="registrar.html">Student Records</a></li>
+                <li><a href="enrolmentForm.html">Enrol Students</a></li>
+                <li><a href="https://albztzy.infinityfreeapp.com/login2.php" target="_blank">Student Records</a></li>
             </ul>
         </nav>
         <hr class="line">
@@ -33,11 +128,11 @@
     <main>
         <section id="about-content">
             <h2>Welcome to Mayor Pablo O. Lim Memorial High School!</h2>
-            <p>Located in the picturesque town of Marawis, Valencia, Bohol, our school is dedicated to fostering a learning environment that empowers students to excel academically and develop essential life skills. We take pride in offering a diverse range of educational programs tailored to meet the varied interests and aspirations of our students.</p>
-            <p>Our curriculum features specialized strands such as the Science and Technology Strand, which prepares students for advanced studies in science and engineering. We also offer Technical-Vocational Livelihood (TVL) programs in Agriculture and Bread and Pastry, equipping students with practical skills that are vital in today's job market. Additionally, the General Academic Strand provides a solid foundation for students pursuing higher education across various disciplines.</p>
-            <p>For our aspiring scientists and innovators, we offer a Special Science Class that dives deeper into scientific principles and methodologies, along with our Enhanced Science Class with Robotics Integration, where students engage in hands-on learning experiences that combine science with cutting-edge technology.</p>
-            <p>Our dedicated faculty includes a number of DOST-Scholars, who bring expertise and passion for teaching, ensuring that every student receives the support they need to succeed. We are committed to nurturing a culture of curiosity, critical thinking, and creativity.</p>
-            <p>At Mayor Pablo O. Lim Memorial High School, we believe in harnessing the strengths of our students, preparing them not just for academic success but also for meaningful contributions to society. Join us as we inspire the next generation of leaders and innovators!</p>
+            <p>Located in the picturesque town of Marawis, Valencia, Bohol, our school is dedicated to fostering a learning environment that empowers students to excel academically and develop essential life skills.</p>
+            <p>Our curriculum features specialized strands such as the **Science and Technology Strand**, **Technical-Vocational Livelihood (TVL)** programs in **Agriculture** and **Bread & Pastry**, and the **General Academic Strand**, preparing students for various career paths.</p>
+            <p>We also offer a **Special Science Class** and an **Enhanced Science Class with Robotics Integration**, ensuring students gain hands-on experience with the latest innovations.</p>
+            <p>With a faculty that includes **DOST-Scholars**, we are committed to nurturing curiosity, critical thinking, and creativity, preparing students for success in academics and beyond.</p>
+            <p>Join us as we inspire the next generation of leaders and innovators!</p>
         </section>
     </main>
 
