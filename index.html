@@ -129,6 +129,20 @@
             color: #ff6347;
         }
 
+        /* Video Embedding */
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
     </style>
 </head>
 <body>
@@ -147,10 +161,14 @@
         </nav>
     </header>
 
-    <!-- Main Section with Image and Description -->
+    <!-- Main Section with YouTube Video Embed -->
     <main>
         <section id="main-content">
-            <img src="icon.png" alt="AlbzTeachy Image" class="school-image"> <!-- Updated to use icon.png as site image -->
+            <!-- Embed YouTube Video -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="AlbzTeachy YouTube Video"></iframe> <!-- Replace YOUR_VIDEO_ID with your actual YouTube video ID -->
+            </div>
+
             <div class="school-description">
                 <p>Welcome to **AlbzTeachy**, the educational platform committed to enhancing learning experiences. Our goal is to empower individuals through accessible and quality education that adapts to the needs of the modern world.</p>
                 <p><strong>About:</strong> This page is committed to providing educational tools and educational concepts useful to both teachers and students. The developer is committed to making digital innovations that make complex tasks in the teaching and learning process more meaningful, easier, and computer-aided instruction to teaching Mathematics, Science, and Technology.</p>
