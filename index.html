@@ -156,12 +156,14 @@
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: left; /* Align text to the left */
+            font-size: 10pt; /* Set font size to 10pt */
         }
 
         .video-list a {
             display: block;
             color: #e94560;
-            font-size: 18px;
+            font-size: 10pt;
             margin-bottom: 10px;
             text-decoration: none;
         }
@@ -172,6 +174,18 @@
             padding: 5px;
             border-radius: 5px;
         }
+
+        /* Search Bar */
+        .search-bar {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 90%;
+            font-size: 14pt;
+            background-color: #0f3460;
+            color: white;
+            border-radius: 5px;
+        }
+
     </style>
 </head>
 <body>
@@ -198,6 +212,7 @@
         </div>
 
         <div class="video-list">
+            <input type="text" id="videoSearch" class="search-bar" placeholder="Search videos..." onkeyup="filterList()">
             <a href="javascript:void(0);" onclick="changeVideo('6_q_LHq85Cs')">Video 1: Educational Tools</a>
             <a href="javascript:void(0);" onclick="changeVideo('J1HsQwRs3Kk')">Video 2: Teaching Science</a>
             <a href="javascript:void(0);" onclick="changeVideo('HsUT6H7VUXE')">Video 3: Teaching Mathematics</a>
@@ -240,6 +255,24 @@
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Filter the video list by search term
+        function filterList() {
+            var input, filter, links, a, i, txtValue;
+            input = document.getElementById('videoSearch');
+            filter = input.value.toUpperCase();
+            links = document.getElementsByClassName('video-list')[0].getElementsByTagName('a');
+            
+            for (i = 0; i < links.length; i++) {
+                a = links[i];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a.style.display = "";
+                } else {
+                    a.style.display = "none";
+                }
+            }
+        }
     </script>
 
 </body>
