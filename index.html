@@ -28,9 +28,10 @@
         .header-content {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Left-align logo and title */
             gap: 10px;
             flex-wrap: wrap;
+            padding-left: 20px; /* Adding some space from the left */
         }
 
         .school-logo {
@@ -150,7 +151,7 @@
     <!-- Header Section with Navigation Menu -->
     <header>
         <div class="header-content">
-            <img src="icon.png" alt="AlbzTeachy Logo" class="school-logo"> <!-- Updated to use icon.png -->
+            <img src="icon.php" alt="AlbzTeachy Logo" class="school-logo"> <!-- Updated to use icon.php -->
             <h1>AlbzTeachy</h1>
         </div>
         <nav>
@@ -164,9 +165,9 @@
     <!-- Main Section with YouTube Video Embed -->
     <main>
         <section id="main-content">
-            <!-- Embed YouTube Video -->
+            <!-- Embed YouTube Video with Autoplay -->
             <div class="video-container">
-               <iframe src="https://www.youtube.com/embed/gE8W1mFm4bQ" title="AlbzTeachy YouTube Video"></iframe>
+                <iframe src="https://www.youtube.com/embed/gE8W1mFm4bQ?autoplay=1" title="AlbzTeachy YouTube Video"></iframe> <!-- Autoplay video -->
             </div>
 
             <div class="school-description">
