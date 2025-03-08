@@ -81,6 +81,9 @@
         main {
             margin-top: 60px;
             padding: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between iframe and video list */
         }
 
         #main-content {
@@ -132,7 +135,7 @@
 
         /* Video Embedding */
         .video-container {
-            width: 100%;
+            width: 70%; /* Takes 70% of the width */
             max-width: 800px;
             margin: 20px auto;
             padding: 10px;
@@ -144,6 +147,31 @@
             border: none;
         }
 
+        /* Video List Styling */
+        .video-list {
+            width: 25%; /* Takes 25% of the width */
+            max-height: 450px; /* Same height as iframe */
+            overflow-y: auto; /* Adds vertical scrollbar */
+            background-color: #333333;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-list a {
+            display: block;
+            color: #e94560;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .video-list a:hover {
+            color: #fff;
+            background: #e94560;
+            padding: 5px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -162,32 +190,19 @@
         </nav>
     </header>
 
-    <!-- Main Section with YouTube Video Embed -->
+    <!-- Main Section with YouTube Video Embed and Video List -->
     <main>
-        <section id="main-content">
+        <div class="video-container">
             <!-- Embed YouTube Video -->
-            <div class="video-container">
-                <iframe id="videoFrame" src="https://www.youtube.com/embed/6_q_LHq85Cs?enablejsapi=1&autoplay=1" title="AlbzTeachy YouTube Video"></iframe> <!-- Initial Video Link -->
-            </div>
+            <iframe id="videoFrame" src="https://www.youtube.com/embed/6_q_LHq85Cs?enablejsapi=1&autoplay=1" title="AlbzTeachy YouTube Video"></iframe> <!-- Initial Video Link -->
+        </div>
 
-            <div class="school-description">
-                <p>Welcome to **AlbzTeachy**, the educational platform committed to enhancing learning experiences. Our goal is to empower individuals through accessible and quality education that adapts to the needs of the modern world.</p>
-                <p><strong>About:</strong> This page is committed to providing educational tools and educational concepts useful to both teachers and students. The developer is committed to making digital innovations that make complex tasks in the teaching and learning process more meaningful, easier, and computer-aided instruction to teaching Mathematics, Science, and Technology.</p>
-            </div>
-
-            <!-- Downloadable Excel Forms and Templates Section -->
-            <h3>Downloadable Excel Forms and Templates</h3>
-            <div class="school-description">
-                <ul style="text-align: left; margin: 0 auto;">
-                    <li><a href="https://drive.google.com/your-sf9-link" target="_blank">SF9 (Student Form 9)</a></li>
-                    <li><a href="https://drive.google.com/your-sf10-link" target="_blank">SF10 (Student Form 10)</a></li>
-                    <li><a href="https://drive.google.com/your-sf8-link" target="_blank">SF8 (Student Form 8)</a></li>
-                    <li><a href="https://drive.google.com/your-sf14-link" target="_blank">SF14 (Student Form 14)</a></li>
-                    <li><a href="https://drive.google.com/your-tos-link" target="_blank">TOS (Table of Specifications)</a></li>
-                    <li><a href="https://drive.google.com/your-mooe-link" target="_blank">MOOE-Liquidator</a></li>
-                </ul>
-            </div>
-        </section>
+        <div class="video-list">
+            <a href="javascript:void(0);" onclick="changeVideo('6_q_LHq85Cs')">Video 1: Educational Tools</a>
+            <a href="javascript:void(0);" onclick="changeVideo('J1HsQwRs3Kk')">Video 2: Teaching Science</a>
+            <a href="javascript:void(0);" onclick="changeVideo('HsUT6H7VUXE')">Video 3: Teaching Mathematics</a>
+            <!-- Add more videos here as needed -->
+        </div>
     </main>
 
     <!-- Footer Section -->
@@ -201,8 +216,6 @@
     <!-- YouTube Player API Script -->
     <script>
         var player;
-        var videoIds = ["6_q_LHq85Cs", "J1HsQwRs3Kk", "HsUT6H7VUXE"]; // Added the third video ID
-        var currentVideo = 0;
 
         function onYouTubePlayerAPIReady() {
             player = new YT.Player('videoFrame', {
@@ -214,11 +227,12 @@
 
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.ENDED) {
-                currentVideo++;
-                if (currentVideo < videoIds.length) {
-                    player.loadVideoById(videoIds[currentVideo]);
-                }
+                // Can load the next video if needed
             }
+        }
+
+        function changeVideo(videoId) {
+            player.loadVideoById(videoId); // Change the video dynamically when clicked
         }
 
         // Load the YouTube API script
