@@ -77,6 +77,36 @@
             transform: scale(1.05);
         }
 
+        /* Dropdown for Downloads */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #e94560;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+
         /* Main Section */
         main {
             margin-top: 60px;
@@ -200,6 +230,14 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="https://albztzy.infinityfreeapp.com/login.php" target="_blank">Login</a></li> <!-- Changed to Login -->
+                <li class="dropdown">
+                    <a href="javascript:void(0)">Downloads</a>
+                    <div class="dropdown-content">
+                        <a href="https://drive.google.com/file/d/EXCEL_FILE_ID/view" target="_blank">Download Excel File 1</a>
+                        <a href="https://drive.google.com/file/d/ANOTHER_FILE_ID/view" target="_blank">Download Excel File 2</a>
+                        <!-- Add more files as needed -->
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
